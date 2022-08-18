@@ -11,7 +11,6 @@ export class UsersService {
         @InjectModel('user') private userModel: Model<UserDocument>
     ) {}
 
-
 async getUsers(): Promise<User[]> {
     return this.userModel.find({}, "-password").exec()
 }
