@@ -1,13 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { User, UserDocument } from 'src/schemas/user.schema';
-import { model } from 'mongoose';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable({})
 export class AuthService {
-  signup() {
-    return { msg: 'I have signed up' };
-  }
-  signin() {
-    return { msg: 'I have signed in' };
-  }
+  constructor(
+    @InjectModel('user') private readonly userModel: Model<UserDocument>,
+  ) {}
 }
