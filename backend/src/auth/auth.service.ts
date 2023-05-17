@@ -9,3 +9,4 @@ export class AuthService {
     @InjectModel('user') private readonly userModel: Model<UserDocument>,
   ) {}
 }
+    
